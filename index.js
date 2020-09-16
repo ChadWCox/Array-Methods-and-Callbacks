@@ -76,14 +76,25 @@ console.log(getWinnersByYear((getWinners(getFinals(fifaData))), getYears(getFina
 
 /* Task 6: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
+function getAverageGoals(data){
+
+const averageHomeGoals = data.reduce(function(acc, item){
+    return acc + item["Home Team Goals"]
+},0);
+const averageAwayGoals = data.reduce(function(acc, item){
+    return acc + item["Away Team Goals"]
+},0);
+return `The World cup Home Team Average Goals are ${averageHomeGoals/fifaData.length}, and the Away Team Average Goals are ${averageAwayGoals/fifaData.length}.`;
+;
+}
+console.log(getAverageGoals(fifaData));
+
+// const averageAwayGoals = fifaData.reduce(function(acc, item){
+//     return
+// }
+
 // function getAverageGoals(data) {
-//     let initialValue = 0
-//     let homeAverage =  data["Home Team Goals"].reduce((acc, curr) =>  acc + curr
-//      })
-// };
-
-// console.log(getAverageGoals(fifaData));
-
+    
 /// STRETCH 🥅 //
 
 /* Stretch 1: Create a function called `getCountryWins` that takes the parameters `data` and `team initials` and returns the number of world cup wins that country has had. 
